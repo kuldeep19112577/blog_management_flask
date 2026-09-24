@@ -1,0 +1,19 @@
+# --- uv & Virtual Environments ---
+.venv/
+.uv/
+
+# --- Environment Secrets (CRITICAL) ---
+.env
+.env.*
+!.env.example
+
+# --- Python Caching ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- IDEs & System Files ---
+.vscode/
+.idea/
+.DS_Store
