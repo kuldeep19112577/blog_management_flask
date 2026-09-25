@@ -20,7 +20,10 @@ def token_required(f):
 
         try:
             data = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
-            current_user_email = data["email"]
+            current_user_email = data.get("email")
+            if not current_user_email:
+                return {"error": "Invalid token payload"}, 401
+            
         except jwt.ExpiredSignatureError:
             return {"error": "Token has expired! Please login again."}, 401
         except jwt.InvalidTokenError:
